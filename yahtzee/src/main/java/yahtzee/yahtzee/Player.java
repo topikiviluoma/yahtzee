@@ -9,6 +9,12 @@ package yahtzee.yahtzee;
  *
  * @author topikivi
  */
-public class Käsi {
+public class Player {
+    
+    private String nimi;
+    
+    public Player(String nimi) {
+        this.nimi = nimi;
+    }
     
 }

@@ -11,11 +11,11 @@ import java.util.Random;
  *
  * @author topikivi
  */
-public class Noppa {
+public class Dice {
 
     private int silmaluku;
 
-    public Noppa() {
+    public Dice() {
         this.silmaluku = 0;
     }
 

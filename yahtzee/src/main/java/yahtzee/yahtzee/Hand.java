@@ -9,6 +9,6 @@ package yahtzee.yahtzee;
  *
  * @author topikivi
  */
-public class Tulostaulu {
+public class Hand {
     
 }
