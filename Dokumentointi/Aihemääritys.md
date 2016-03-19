@@ -7,3 +7,7 @@
  - Käyttäjien ei tarvitse erikseen kirjautua järjestelmään
  - Käyttäjät vuorotellen painavat 'Roll' painiketta, jolloin joko kaikki nopat tai valinnan ulkopuolle jääneet nopat heitetään.
  - Käyttäjät lopuksi valitsevat, minkä käden käyttävät heittämillään nopilla
+
+**Luokkakaavio:**
+![Alt text](/luokkakaavio.png)
+
