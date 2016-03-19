@@ -11,4 +11,15 @@ package yahtzee.yahtzee;
  */
 public class Main {
     
+    public static void main(String[] args) {
+        Noppa n = new Noppa();
+        n.heita();
+        System.out.println(n.getSilmaluku());
+        n.heita();
+        System.out.println(n.getSilmaluku());
+        n.heita();
+        System.out.println(n.getSilmaluku());
+                
+    }
+    
 }

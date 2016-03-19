@@ -9,5 +9,6 @@
  - Käyttäjät lopuksi valitsevat, minkä käden käyttävät heittämillään nopilla
 
 **Luokkakaavio:**
+
 ![Alt text](/Dokumentointi/luokkakaavio.png)
 

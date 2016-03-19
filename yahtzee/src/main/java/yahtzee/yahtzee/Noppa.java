@@ -5,10 +5,29 @@
  */
 package yahtzee.yahtzee;
 
+import java.util.Random;
+
 /**
  *
  * @author topikivi
  */
 public class Noppa {
+
+    private int silmaluku;
+
+    public Noppa() {
+        this.silmaluku = 0;
+    }
+
+    public int getSilmaluku() {
+        return silmaluku;
+    }
     
+    public void heita() {
+        Random random = new Random();
+                
+        this.silmaluku = random.nextInt(6) + 1;
+    }
+   
+
 }
