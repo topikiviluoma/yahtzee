@@ -13,11 +13,11 @@ public class Main {
     
     public static void main(String[] args) {
         Dice n = new Dice();
-        n.heita();
+        n.roll();
         System.out.println(n.getSilmaluku());
-        n.heita();
+        n.roll();
         System.out.println(n.getSilmaluku());
-        n.heita();
+        n.roll();
         System.out.println(n.getSilmaluku());
                 
     }

@@ -23,7 +23,7 @@ public class Dice {
         return silmaluku;
     }
     
-    public void heita() {
+    public void roll() {
         Random random = new Random();
                 
         this.silmaluku = random.nextInt(6) + 1;
