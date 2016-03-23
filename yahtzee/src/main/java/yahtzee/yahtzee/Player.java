@@ -5,6 +5,8 @@
  */
 package yahtzee.yahtzee;
 
+import java.util.List;
+
 /**
  *
  * @author topikivi
@@ -15,6 +17,12 @@ public class Player {
     
     public Player(String nimi) {
         this.nimi = nimi;
+    }
+    
+    public void roll(List<Dice> dice) {
+        for (Dice d:dice) {
+            d.roll();
+        }
     }
     
 }

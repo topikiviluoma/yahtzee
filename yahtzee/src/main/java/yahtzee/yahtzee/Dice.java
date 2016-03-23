@@ -16,18 +16,21 @@ public class Dice {
     private int silmaluku;
 
     public Dice() {
-        this.silmaluku = 0;
+        this.silmaluku = 1;
     }
 
     public int getSilmaluku() {
         return silmaluku;
     }
-    
+
     public void roll() {
         Random random = new Random();
-                
+
         this.silmaluku = random.nextInt(6) + 1;
     }
-   
+    
+    public String toString() {
+        return Integer.toString(silmaluku);
+    }
 
 }
