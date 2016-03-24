@@ -18,11 +18,19 @@ public class Player {
     public Player(String nimi) {
         this.nimi = nimi;
     }
+
+    public String getNimi() {
+        return nimi;
+    }
     
     public void roll(List<Dice> dice) {
         for (Dice d:dice) {
             d.roll();
         }
+    }
+    
+    public String toString() {
+        return this.nimi;
     }
     
 }

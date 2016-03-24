@@ -5,10 +5,29 @@
  */
 package yahtzee.yahtzee;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author topikivi
  */
 public class Hand {
+    
+    private ArrayList<Dice> dice;
+    private int sum;
+    
+    public Hand(ArrayList<Dice> dice) {
+        
+        this.dice = dice;
+        this.sum = 0;
+    }
+    
+    public int laskeSumma() {
+        this.sum = 0;
+        for (Dice d: dice) {
+            this.sum += d.getSilmaluku();
+        }
+        return this.sum;
+    }
     
 }

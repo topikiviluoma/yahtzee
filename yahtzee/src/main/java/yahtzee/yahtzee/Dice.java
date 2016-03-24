@@ -23,6 +23,12 @@ public class Dice {
         return silmaluku;
     }
 
+    public void setSilmaluku(int silmaluku) {
+        this.silmaluku = silmaluku;
+    }
+    
+    
+
     public void roll() {
         Random random = new Random();
 
