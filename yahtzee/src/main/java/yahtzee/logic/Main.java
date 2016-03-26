@@ -5,21 +5,39 @@
  */
 package yahtzee.logic;
 
+import java.util.Scanner;
+
 /**
  *
  * @author topikivi
  */
 public class Main {
-    
+
     public static void main(String[] args) {
-        Dice n = new Dice();
-        n.roll();
-        System.out.println(n.getSilmaluku());
-        n.roll();
-        System.out.println(n.getSilmaluku());
-        n.roll();
-        System.out.println(n.getSilmaluku());
-                
+        //rundin testausta
+        Scanner lukija = new Scanner(System.in);
+        Player p = new Player("Pekka");
+        Round r = new Round(p);
+        r.luoNopat();
+        r.rollDice();
+        for (int i = 1; i < 6; i++) {
+            System.out.println("Noppa" + i + ": " + r.getDice().get(i - 1));
+        }
+
+        System.out.println("Valitse pyöräytettävät: ");
+        int[] valitut = new int[5];
+        int j = 0;
+        while (!lukija.nextLine().isEmpty()) {
+
+            valitut[j] = Integer.parseInt(lukija.nextLine());;
+            j++;
+        }
+        r.rollDice(valitut);
+
+        for (int i = 1; i < 6; i++) {
+            System.out.println("Noppa" + i + ": " + r.getDice().get(i - 1));
+        }
+
     }
-    
+
 }

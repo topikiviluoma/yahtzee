@@ -41,4 +41,8 @@ public class Round {
             d.get(i).roll();
         }
     }
+    
+    public ArrayList<Dice> getDice() {
+        return d;
+    }
 }
