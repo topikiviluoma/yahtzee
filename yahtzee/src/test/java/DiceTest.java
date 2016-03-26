@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import yahtzee.yahtzee.Dice;
+import yahtzee.logic.Dice;
 
 /**
  *

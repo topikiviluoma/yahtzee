@@ -5,6 +5,8 @@
  */
 package yahtzee.logic;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author topikivi
@@ -12,17 +14,28 @@ package yahtzee.logic;
 public class Round {
 
     private Player player;
+    private ArrayList<Dice> d;
 
     public Round(Player p) {
         this.player = p;
+        this.d = new ArrayList<>();
+        
     }
 
     public void luoNopat() {
-        Dice d1 = new Dice();
-        Dice d2 = new Dice();
-        Dice d3 = new Dice();
-        Dice d4 = new Dice();
-        Dice d5 = new Dice();
+        for (int i = 0; i < 5; i++) {
+            d.add(new Dice());
+        }
+       
+        
     }
+    
+    public void rollDice() {
+        for (Dice die : d) {
+            die.roll();
+        }
+    }
+    
+    
 
 }
