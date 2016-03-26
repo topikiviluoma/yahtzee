@@ -37,10 +37,8 @@ public class Round {
 
     public void rollDice(int[] which) {
         for (int i : which) {
-            if (d.contains(i)) {
-                d.get(i).roll();
-            }
+
+            d.get(i).roll();
         }
     }
-
 }

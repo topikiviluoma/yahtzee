@@ -12,9 +12,9 @@ import java.util.List;
  * @author topikivi
  */
 public class Player {
-    
+
     private String nimi;
-    
+
     public Player(String nimi) {
         this.nimi = nimi;
     }
@@ -22,15 +22,9 @@ public class Player {
     public String getNimi() {
         return nimi;
     }
-    
-    public void roll(List<Dice> dice) {
-        for (Dice d:dice) {
-            d.roll();
-        }
-    }
-    
+
     public String toString() {
         return this.nimi;
     }
-    
+
 }
