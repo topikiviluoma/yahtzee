@@ -19,23 +19,28 @@ public class Round {
     public Round(Player p) {
         this.player = p;
         this.d = new ArrayList<>();
-        
+
     }
 
     public void luoNopat() {
         for (int i = 0; i < 5; i++) {
             d.add(new Dice());
         }
-       
-        
+
     }
-    
+
     public void rollDice() {
         for (Dice die : d) {
             die.roll();
         }
     }
-    
-    
+
+    public void rollDice(int[] which) {
+        for (int i : which) {
+            if (d.contains(i)) {
+                d.get(i).roll();
+            }
+        }
+    }
 
 }
