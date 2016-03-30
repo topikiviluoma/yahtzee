@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import yahtzee.logic.Dice;
+import yahtzee.logic.Die;
 import yahtzee.logic.Hand;
 
 /**
@@ -47,13 +47,13 @@ public class HandTest {
     
     @Test
     public void laskeeSummanOikein() {
-        Dice d1 = new Dice();
-        Dice d2 = new Dice();
-        Dice d3 = new Dice();
+        Die d1 = new Die();
+        Die d2 = new Die();
+        Die d3 = new Die();
         d1.setSilmaluku(6);
         d2.setSilmaluku(6);
         d3.setSilmaluku(6);
-        ArrayList<Dice> dc = new ArrayList<>();
+        ArrayList<Die> dc = new ArrayList<>();
         dc.add(d1);
         dc.add(d2);
         dc.add(d3);

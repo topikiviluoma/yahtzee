@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import yahtzee.logic.Dice;
+import yahtzee.logic.Die;
 
 /**
  *
@@ -44,7 +44,7 @@ public class DiceTest {
     // public void hello() {}
     @Test
     public void konstruktoriAntaaSilmaluvuksi1() {
-        Dice d = new Dice();
+        Die d = new Die();
 
         assertEquals(1, d.getSilmaluku());
     }

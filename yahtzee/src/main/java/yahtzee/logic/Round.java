@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Round {
 
     private Player player;
-    private ArrayList<Dice> d;
+    private ArrayList<Die> d;
 
     public Round(Player p) {
         this.player = p;
@@ -24,13 +24,13 @@ public class Round {
 
     public void luoNopat() {
         for (int i = 0; i < 5; i++) {
-            d.add(new Dice());
+            d.add(new Die());
         }
 
     }
 
     public void rollDice() {
-        for (Dice die : d) {
+        for (Die die : d) {
             die.roll();
         }
     }
@@ -42,7 +42,7 @@ public class Round {
         }
     }
     
-    public ArrayList<Dice> getDice() {
+    public ArrayList<Die> getDice() {
         return d;
     }
 }

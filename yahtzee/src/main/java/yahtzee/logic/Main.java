@@ -20,24 +20,11 @@ public class Main {
         Round r = new Round(p);
         r.luoNopat();
         r.rollDice();
-        for (int i = 1; i < 6; i++) {
-            System.out.println("Noppa" + i + ": " + r.getDice().get(i - 1));
-        }
-
-        System.out.println("Valitse pyöräytettävät: ");
-        int[] valitut = new int[5];
-        int j = 0;
-        while (!lukija.nextLine().isEmpty()) {
-
-            valitut[j] = Integer.parseInt(lukija.nextLine());;
-            j++;
-        }
-        r.rollDice(valitut);
-
-        for (int i = 1; i < 6; i++) {
-            System.out.println("Noppa" + i + ": " + r.getDice().get(i - 1));
-        }
+        Scoreslogic sl = new Scoreslogic();
+        sl.setDice(r.getDice());
+        System.out.println(r.getDice());
+        System.out.println(sl.calcPossibleScores());
+        
 
     }
-
 }

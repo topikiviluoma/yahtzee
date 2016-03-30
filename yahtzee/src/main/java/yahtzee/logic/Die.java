@@ -11,12 +11,16 @@ import java.util.Random;
  *
  * @author topikivi
  */
-public class Dice {
+public class Die {
 
     private int silmaluku;
+    public boolean locked;
+    
 
-    public Dice() {
+    public Die() {
         this.silmaluku = 1;
+        this.locked = false;
+
     }
 
     public int getSilmaluku() {
@@ -26,15 +30,25 @@ public class Dice {
     public void setSilmaluku(int silmaluku) {
         this.silmaluku = silmaluku;
     }
-    
-    
 
     public void roll() {
         Random random = new Random();
 
         this.silmaluku = random.nextInt(6) + 1;
     }
-    
+
+    public void lock() {
+        this.locked = true;
+    }
+
+    public void unlock() {
+        this.locked = false;
+    }
+
+    public boolean locked() {
+        return this.locked;
+    }
+
     public String toString() {
         return Integer.toString(silmaluku);
     }

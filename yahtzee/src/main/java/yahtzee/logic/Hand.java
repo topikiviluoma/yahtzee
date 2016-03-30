@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Hand {
     
-    private ArrayList<Dice> dice;
+    private ArrayList<Die> dice;
     private int sum;
     
-    public Hand(ArrayList<Dice> dice) {
+    public Hand(ArrayList<Die> dice) {
         
         this.dice = dice;
         this.sum = 0;
@@ -24,7 +24,7 @@ public class Hand {
     
     public int laskeSumma() {
         this.sum = 0;
-        for (Dice d: dice) {
+        for (Die d: dice) {
             this.sum += d.getSilmaluku();
         }
         return this.sum;

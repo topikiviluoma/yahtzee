@@ -5,6 +5,7 @@
  */
 package yahtzee.logic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -13,10 +14,33 @@ import java.util.HashMap;
  */
 public interface Scores {
 
-    HashMap<Commons.Hand, Integer> getHands();
+    enum Hand {
+        ONES,
+        TWOS,
+        THREES,
+        FOURS,
+        FIVES,
+        SIXES,
+        ONE_PAIR,
+        TWO_PAIR,
+        THREE_OF_A_KIND,
+        FOUR_OF_A_KIND,
+        SMALL_STRAIGHT,
+        LARGE_STRAIGHT,
+        FULL_HOUSE,
+        YATZY,
+        CHANCE
+    }
+    int UPPER_BONUS_LIMIT = 63;
+    int UPPER_BONUS_SCORE = 50;
+    int YATZY_SCORE = 50;
 
-    void addHand(Commons.Hand hand, int score);
+    void addScore(Hand hand, int score);
 
+    HashMap<Hand, Integer> getScores();
+
+    HashMap<Hand, Integer> getPossibleScores(ArrayList<Die> dice);
+    
     int getUpperTotal();
 
     int getUpperBonus();

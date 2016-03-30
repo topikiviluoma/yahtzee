@@ -22,9 +22,9 @@ public class Commons {
         TWO_PAIR,
         THREE_OF_A_KIND,
         FOUR_OF_A_KIND,
+        FULL_HOUSE,
         SMALL_STRAIGHT,
         LARGE_STRAIGHT,
-        FULL_HOUSE,
         YATZY,
         CHANCE
     }
