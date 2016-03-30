@@ -5,6 +5,6 @@ Aiheena on luoda yksinkertainen Yahtzee peli, jota pystyy pelaamaan kaksi ihmisp
 
 [aiheen kuvaus](Dokumentointi/Aihemääritys.md)
 
-[tuntikirjanpito](Dokumentointi/tuntikirjanpito.md)
+[tuntikirjanpito](Dokumentointi/Tuntikirjanpito.md)
 
 
