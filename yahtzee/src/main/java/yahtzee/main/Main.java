@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yahtzee.logic;
+package yahtzee.main;
 
 import java.util.Scanner;
+import yahtzee.logic.Player;
+import yahtzee.logic.Round;
+import yahtzee.logic.Scoreslogic;
 
 /**
  *
