@@ -1,3 +1,8 @@
 # yahtzee
 Epic Yahtzee Game
-kewl
+Aiheena on luoda yksinkertainen Yahtzee peli, jota pystyy pelaamaan kaksi ihmispelaajaa
+
+# Dokumentaatio
+
+[aiheen kuvaus](dokumentaatio/Aihemääritys.md)
+[tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
