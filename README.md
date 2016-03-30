@@ -3,8 +3,8 @@ Aiheena on luoda yksinkertainen Yahtzee peli, jota pystyy pelaamaan kaksi ihmisp
 
 # Dokumentaatio
 
-[aiheen kuvaus](dokumentointi/Aihemääritys.md)
+[aiheen kuvaus](Dokumentointi/Aihemääritys.md)
 
-[tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
+[tuntikirjanpito](Dokumentointi/tuntikirjanpito.md)
 
 
