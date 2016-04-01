@@ -16,7 +16,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import yahtzee.logic.Die;
 import yahtzee.logic.Scores;
-import yahtzee.logic.Scoreslogic;
+
 
 /**
  *
@@ -51,162 +51,147 @@ public class ScoreslogicTest {
     @Test
     public void ones() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(2);
-        d4.setSilmaluku(4);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.ONES) == 1);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(1);
+        dice.get(1).setSilmaluku(1);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(2, score.calcPossibleScores(dice).get(Scores.Hand.ONES).intValue());
     }
 
     @Test
     public void twos() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(2);
-        d4.setSilmaluku(4);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.TWOS) == 2);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(2);
+        dice.get(1).setSilmaluku(2);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(4, score.calcPossibleScores(dice).get(Scores.Hand.TWOS).intValue());
     }
 
     @Test
     public void threes() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(3);
-        d4.setSilmaluku(3);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.THREES) == 6);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(3);
+        dice.get(1).setSilmaluku(3);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(9, score.calcPossibleScores(dice).get(Scores.Hand.THREES).intValue());
     }
 
     @Test
     public void fours() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(4);
-        d4.setSilmaluku(4);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.FOURS) == 8);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(4);
+        dice.get(1).setSilmaluku(4);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.FOURS).intValue());
     }
     
     @Test
     public void fives() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(5);
-        d3.setSilmaluku(5);
-        d4.setSilmaluku(5);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.FIVES) == 15);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(5);
+        dice.get(1).setSilmaluku(5);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(10, score.calcPossibleScores(dice).get(Scores.Hand.FIVES).intValue());
     }
     
     @Test
     public void sixes() {
-        ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(4);
-        d4.setSilmaluku(4);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.SIXES) == 12);
+       ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(6);
+        dice.get(1).setSilmaluku(1);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.SIXES).intValue());
     }
     
     @Test
     public void pair() {
+       ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(4);
+        dice.get(1).setSilmaluku(6);
+        dice.get(2).setSilmaluku(4);
+        dice.get(3).setSilmaluku(6);
+        dice.get(4).setSilmaluku(3);
+        
+        
+        assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.ONE_PAIR).intValue());
+    }
+    
+    @Test 
+    public void yahtzee() {
         ArrayList<Die> dice = new ArrayList<>();
-        Scoreslogic sl = new Scoreslogic();
-        Die d1 = new Die();
-        Die d2 = new Die();
-        Die d3 = new Die();
-        Die d4 = new Die();
-        Die d5 = new Die();
-        d1.setSilmaluku(6);
-        d2.setSilmaluku(1);
-        d3.setSilmaluku(3);
-        d4.setSilmaluku(4);
-        d5.setSilmaluku(6);
-        dice.add(d1);
-        dice.add(d2);
-        dice.add(d3);
-        dice.add(d4);
-        dice.add(d5);
-        sl.setDice(dice);
-        assertTrue(sl.calcPossibleScores().get(Scores.Hand.ONE_PAIR) == 12);
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setSilmaluku(5);
+        dice.get(1).setSilmaluku(5);
+        dice.get(2).setSilmaluku(5);
+        dice.get(3).setSilmaluku(5);
+        dice.get(4).setSilmaluku(5);
+        
+        
+        assertEquals(50, score.calcPossibleScores(dice).get(Scores.Hand.YATZY).intValue());
+    
+        
     }
 
 }

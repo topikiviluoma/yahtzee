@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yahtzee.main;
+package yahtzee.logic;
 
 import java.util.Scanner;
 import yahtzee.logic.Player;
 import yahtzee.logic.Round;
-import yahtzee.logic.Scoreslogic;
+;
 
 /**
  *
@@ -23,11 +23,14 @@ public class Main {
         Round r = new Round(p);
         r.luoNopat();
         r.rollDice();
-        Scoreslogic sl = new Scoreslogic();
-        sl.setDice(r.getDice());
-        System.out.println(r.getDice());
-        System.out.println(sl.calcPossibleScores());
+        for (int i = 0; i < 5; i++) {
+            System.out.println("noppa " + i + ": " + r.getDice().get(i));
+        }
+        ScoresLogic sl = new ScoresLogic();
         
-
+        System.out.println(r.getDice());
+        System.out.println("Mahdolliset tulokset: ");
+        System.out.println(sl.calcPossibleScores(r.getDice()));
+        
     }
 }

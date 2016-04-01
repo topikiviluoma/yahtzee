@@ -22,7 +22,7 @@ public interface Scores {
         FIVES,
         SIXES,
         ONE_PAIR,
-        TWO_PAIR,
+        TWO_PAIRS,
         THREE_OF_A_KIND,
         FOUR_OF_A_KIND,
         SMALL_STRAIGHT,
@@ -39,7 +39,7 @@ public interface Scores {
 
     HashMap<Hand, Integer> getScores();
 
-    HashMap<Hand, Integer> getPossibleScores(ArrayList<Die> dice);
+    HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice);
     
     int getUpperTotal();
 
