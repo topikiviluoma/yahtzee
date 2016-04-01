@@ -6,3 +6,4 @@ Päivä | Tunnit | Kuvaus
 24.3.2016 | 1h | Metodien ja testien luontia
 26.3.2016 | 2.5h | Round luokan luontia ja testailua
 30.3.2016 | 3h | Scores luokan hahmottelua, luontia ja testailua
+1.4.2016 | 2h | Scores logiikan parantelua, testailua
