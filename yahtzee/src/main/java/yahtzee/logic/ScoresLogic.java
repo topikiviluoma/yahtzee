@@ -15,24 +15,24 @@ import java.util.Set;
  */
 public class ScoresLogic implements Scores {
 
-     private static final Hand[] upperHands = {
-            Hand.ONES,
-            Hand.TWOS,
-            Hand.THREES,
-            Hand.FOURS,
-            Hand.FIVES,
-            Hand.SIXES
+    private static final Hand[] UPPERHANDS = {
+        Hand.ONES,
+        Hand.TWOS,
+        Hand.THREES,
+        Hand.FOURS,
+        Hand.FIVES,
+        Hand.SIXES
     };
-    private static final Hand[] lowerHands = {
-            Hand.ONE_PAIR,
-            Hand.TWO_PAIRS,
-            Hand.THREE_OF_A_KIND,
-            Hand.FOUR_OF_A_KIND,
-            Hand.SMALL_STRAIGHT,
-            Hand.LARGE_STRAIGHT,
-            Hand.FULL_HOUSE,
-            Hand.YATZY,
-            Hand.CHANCE
+    private static final Hand[] LOWERHANDS = {
+        Hand.ONE_PAIR,
+        Hand.TWO_PAIRS,
+        Hand.THREE_OF_A_KIND,
+        Hand.FOUR_OF_A_KIND,
+        Hand.SMALL_STRAIGHT,
+        Hand.LARGE_STRAIGHT,
+        Hand.FULL_HOUSE,
+        Hand.YATZY,
+        Hand.CHANCE
     };
 
     private HashMap<Hand, Integer> scores;
@@ -56,7 +56,6 @@ public class ScoresLogic implements Scores {
         HashMap<Integer, Integer> occurrences = createOccurrenceMap(dice);
         HashMap<Hand, Integer> possibleScores = new HashMap<>();
 
-       
         int sum = 0;
         for (int i = 1; i <= 6; i++) {
             if (occurrences.containsKey(i)) {
@@ -85,8 +84,7 @@ public class ScoresLogic implements Scores {
             }
         }
 
-       // Two Pairs TODO
-
+        // Two Pairs TODO
         // Full house
         if (!scores.containsKey(Hand.FULL_HOUSE) && occurrences.size() == 2) {
             boolean fullHouse = true;
@@ -127,7 +125,7 @@ public class ScoresLogic implements Scores {
     }
 
     public int getUpperTotal() {
-        return calcTotal(upperHands);
+        return calcTotal(UPPERHANDS);
     }
 
     public int getUpperBonus() {
@@ -135,7 +133,7 @@ public class ScoresLogic implements Scores {
     }
 
     public int getLowerTotal() {
-        return calcTotal(lowerHands);
+        return calcTotal(LOWERHANDS);
     }
 
     public int getTotal() {
@@ -185,8 +183,5 @@ public class ScoresLogic implements Scores {
 
         throw new IllegalArgumentException("Illegal face value.");
     }
-
-   
-
 
 }
