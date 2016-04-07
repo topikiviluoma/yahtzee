@@ -22,6 +22,7 @@ public class Main {
     public static void main(String[] args) {
             AddPlayers ui = new AddPlayers();
             SwingUtilities.invokeLater(ui);
+            System.out.println();
         
         //rundin testausta
 //        Scanner lukija = new Scanner(System.in);

@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 26.3.2016 | 2.5h | Round luokan luontia ja testailua
 30.3.2016 | 3h | Scores luokan hahmottelua, luontia ja testailua
 1.4.2016 | 2h | Scores logiikan parantelua, testailua
+5.4.2016 | 2.5h | Swing kertausta ja gui:n hahmottelua

@@ -16,17 +16,21 @@ import yahtzee.logic.Player;
  */
 public class AddPlayersListener implements ActionListener {
     
-    private Player player1;
-    private Player player2;
+    
     private JTextField p1;
     private JTextField p2;
     
-    public AddPlayersListener 
+    public AddPlayersListener(JTextField nameField1, JTextField nameField2) {
+        this.p1 = nameField1;
+        this.p2 = nameField2;
+       
+    }
             
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Player player1 = new Player(p1.getText());
+        Player player2 = new Player(p2.getText());
     }
     
    
