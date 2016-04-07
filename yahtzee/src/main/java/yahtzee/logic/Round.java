@@ -45,4 +45,10 @@ public class Round {
     public ArrayList<Die> getDice() {
         return d;
     }
+    
+    public void printScores() {
+        ScoresLogic sl = new ScoresLogic();
+        System.out.println("Mahdolliset tulokset: ");
+        System.out.println(sl.calcPossibleScores(getDice()));
+    }
 }
