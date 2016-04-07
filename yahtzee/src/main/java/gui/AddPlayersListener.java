@@ -27,6 +27,8 @@ public class AddPlayersListener implements ActionListener {
         this.players = new ArrayList<>();
         this.p1 = nameField1;
         this.p2 = nameField2;
+        players.add(player1);
+        players.add(player2);
        
     }
             
