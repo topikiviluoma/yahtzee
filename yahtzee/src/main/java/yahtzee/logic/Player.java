@@ -23,6 +23,7 @@ public class Player {
         return nimi;
     }
 
+    @Override
     public String toString() {
         return this.nimi;
     }

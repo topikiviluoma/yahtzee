@@ -16,32 +16,30 @@ import yahtzee.logic.Player;
  * @author topikivi
  */
 public class AddPlayersListener implements ActionListener {
-    
+
     public String player1;
     public String player2;
     private JTextField p1;
     private JTextField p2;
     public ArrayList<String> players;
-    
+
     public AddPlayersListener(JTextField nameField1, JTextField nameField2) {
         this.players = new ArrayList<>();
         this.p1 = nameField1;
         this.p2 = nameField2;
-        players.add(player1);
-        players.add(player2);
-       
+
     }
-            
 
     @Override
     public void actionPerformed(ActionEvent e) {
         player1 = p2.getText();
         player2 = p2.getText();
+        players.add(player1);
+        players.add(player2);
     }
-    
+
     public ArrayList<String> getPlayers() {
         return this.players;
     }
-    
-   
+
 }

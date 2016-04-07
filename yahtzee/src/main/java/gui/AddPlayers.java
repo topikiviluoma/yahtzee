@@ -41,24 +41,25 @@ public class AddPlayers implements Runnable {
     }
 
     private void createComponents(Container container) {
-        
+
         GridLayout layout = new GridLayout(3, 2);
         container.setLayout(layout);
 
         JLabel nimiTeksti = new JLabel("Pelaaja 1: ");
-        JTextField nimiKentta = new JTextField();
+        JTextField player1 = new JTextField();
         JLabel hetuTeksti = new JLabel("Pelaaja 2: ");
-        JTextField hetuKentta = new JTextField();
+        JTextField player2 = new JTextField();
 
-        JButton lisaaNappi = new JButton("Lisää pelaajat!");
-        // tapahtumankuuntelija
+        JButton addButton = new JButton("Lisää pelaajat!");
+        AddPlayersListener listener = new AddPlayersListener(player1, player2);
+        addButton.addActionListener(listener);
 
         container.add(nimiTeksti);
-        container.add(nimiKentta);
+        container.add(player1);
         container.add(hetuTeksti);
-        container.add(hetuKentta);
+        container.add(player2);
         container.add(new JLabel(""));
-        container.add(lisaaNappi);
+        container.add(addButton);
 
     }
 
