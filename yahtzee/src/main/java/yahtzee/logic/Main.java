@@ -20,10 +20,10 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) {
-            AddPlayers ui = new AddPlayers();
-            SwingUtilities.invokeLater(ui);
-            System.out.println();
-        
+        AddPlayers ui = new AddPlayers();
+        SwingUtilities.invokeLater(ui);
+        System.out.println();
+
         //rundin testausta
 //        Scanner lukija = new Scanner(System.in);
 //        Player p = new Player("Pekka");
@@ -71,6 +71,5 @@ public class Main {
 //            sl.addScore(Scores.Hand.TWOS, pisteet);
 //        }
 //        System.out.println(sl.getScores());
-    
     }
 }

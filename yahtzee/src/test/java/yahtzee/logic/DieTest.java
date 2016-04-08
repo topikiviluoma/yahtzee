@@ -65,4 +65,5 @@ public class DieTest {
         d.unlock();
         assertEquals(false, d.locked());
     }
+    
 }

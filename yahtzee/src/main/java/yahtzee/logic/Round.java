@@ -22,7 +22,7 @@ public class Round {
 
     }
 
-    public void luoNopat() {
+    public void createDice() {
         for (int i = 0; i < 5; i++) {
             d.add(new Die());
         }
@@ -35,12 +35,6 @@ public class Round {
         }
     }
 
-    public void rollDice(int[] which) {
-        for (int i : which) {
-
-            d.get(i).roll();
-        }
-    }
     
     public ArrayList<Die> getDice() {
         return d;
