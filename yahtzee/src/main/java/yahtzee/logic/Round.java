@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Round {
 
-    private Player player;
+    private String player;
     private ArrayList<Die> d;
 
-    public Round(Player p) {
+    public Round(String p) {
         this.player = p;
         this.d = new ArrayList<>();
 

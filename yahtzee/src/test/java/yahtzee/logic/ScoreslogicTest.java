@@ -56,11 +56,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(1);
-        dice.get(1).setSilmaluku(1);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(1);
+        dice.get(1).setFaceValue(1);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(2, score.calcPossibleScores(dice).get(Scores.Hand.ONES).intValue());
@@ -74,11 +74,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(2);
-        dice.get(1).setSilmaluku(2);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(2);
+        dice.get(1).setFaceValue(2);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(4, score.calcPossibleScores(dice).get(Scores.Hand.TWOS).intValue());
@@ -92,11 +92,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(3);
-        dice.get(1).setSilmaluku(3);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(3);
+        dice.get(1).setFaceValue(3);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(9, score.calcPossibleScores(dice).get(Scores.Hand.THREES).intValue());
@@ -110,11 +110,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(4);
-        dice.get(1).setSilmaluku(4);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(4);
+        dice.get(1).setFaceValue(4);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.FOURS).intValue());
@@ -128,11 +128,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(5);
-        dice.get(1).setSilmaluku(5);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(5);
+        dice.get(1).setFaceValue(5);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(10, score.calcPossibleScores(dice).get(Scores.Hand.FIVES).intValue());
@@ -146,11 +146,11 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(6);
-        dice.get(1).setSilmaluku(1);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(6);
+        dice.get(1).setFaceValue(1);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.SIXES).intValue());
@@ -164,14 +164,122 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(4);
-        dice.get(1).setSilmaluku(6);
-        dice.get(2).setSilmaluku(4);
-        dice.get(3).setSilmaluku(6);
-        dice.get(4).setSilmaluku(3);
+        dice.get(0).setFaceValue(2);
+        dice.get(1).setFaceValue(6);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
         
         
         assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.ONE_PAIR).intValue());
+    }
+    
+    @Test
+    public void twoPair() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(4);
+        dice.get(1).setFaceValue(6);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
+        
+        
+        assertEquals(20, score.calcPossibleScores(dice).get(Scores.Hand.TWO_PAIRS).intValue());
+    }
+    
+    @Test
+    public void threeOfAKind() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(4);
+        dice.get(1).setFaceValue(4);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
+        
+        
+        assertEquals(12, score.calcPossibleScores(dice).get(Scores.Hand.THREE_OF_A_KIND).intValue());
+    }
+    
+    @Test
+    public void fourOfAKind() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(6);
+        dice.get(1).setFaceValue(6);
+        dice.get(2).setFaceValue(6);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
+        
+        
+        assertEquals(24, score.calcPossibleScores(dice).get(Scores.Hand.FOUR_OF_A_KIND).intValue());
+    }
+    
+    @Test
+    public void fullHouse() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(4);
+        dice.get(1).setFaceValue(6);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(6);
+        
+        
+        assertEquals(26, score.calcPossibleScores(dice).get(Scores.Hand.FULL_HOUSE).intValue());
+    }
+    
+    @Test
+    public void smallStraight() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(1);
+        dice.get(1).setFaceValue(2);
+        dice.get(2).setFaceValue(3);
+        dice.get(3).setFaceValue(4);
+        dice.get(4).setFaceValue(5);
+        
+        
+        assertEquals(15, score.calcPossibleScores(dice).get(Scores.Hand.SMALL_STRAIGHT).intValue());
+    }
+    
+    @Test
+    public void largeStraight() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(2);
+        dice.get(1).setFaceValue(3);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(5);
+        dice.get(4).setFaceValue(6);
+        
+        
+        assertEquals(20, score.calcPossibleScores(dice).get(Scores.Hand.LARGE_STRAIGHT).intValue());
     }
     
     @Test 
@@ -182,16 +290,34 @@ public class ScoreslogicTest {
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
-        dice.get(0).setSilmaluku(5);
-        dice.get(1).setSilmaluku(5);
-        dice.get(2).setSilmaluku(5);
-        dice.get(3).setSilmaluku(5);
-        dice.get(4).setSilmaluku(5);
+        dice.get(0).setFaceValue(5);
+        dice.get(1).setFaceValue(5);
+        dice.get(2).setFaceValue(5);
+        dice.get(3).setFaceValue(5);
+        dice.get(4).setFaceValue(5);
         
         
         assertEquals(50, score.calcPossibleScores(dice).get(Scores.Hand.YATZY).intValue());
     
         
+    }
+    
+    @Test
+    public void chance() {
+        ArrayList<Die> dice = new ArrayList<>();
+        ScoresLogic score = new ScoresLogic();
+        
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
+        dice.get(0).setFaceValue(5);
+        dice.get(1).setFaceValue(6);
+        dice.get(2).setFaceValue(4);
+        dice.get(3).setFaceValue(6);
+        dice.get(4).setFaceValue(3);
+        
+        
+        assertEquals(24, score.calcPossibleScores(dice).get(Scores.Hand.CHANCE).intValue());
     }
 
 }

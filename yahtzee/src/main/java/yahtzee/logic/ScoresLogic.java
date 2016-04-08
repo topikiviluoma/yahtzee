@@ -57,6 +57,8 @@ public class ScoresLogic implements Scores {
         HashMap<Hand, Integer> possibleScores = new HashMap<>();
 
         int sum = 0;
+        int pair1 = 0;
+        int pair2 = 0;
         for (int i = 1; i <= 6; i++) {
             if (occurrences.containsKey(i)) {
                 sum += occurrences.get(i) * i;
@@ -66,12 +68,25 @@ public class ScoresLogic implements Scores {
                 if (!scores.containsKey(hand)) {
                     possibleScores.put(hand, occurrences.get(i) * i);
                 }
+                // Pairs
+                if (occurrences.get(i) >= 2) {
+                    // One pair
+                    if (!scores.containsKey(Hand.ONE_PAIR)) {
+                        possibleScores.put(Hand.ONE_PAIR, 2 * i);
+                    }
 
-                // One pair
-                if (!scores.containsKey(Hand.ONE_PAIR) && occurrences.get(i) >= 2) {
-                    possibleScores.put(Hand.ONE_PAIR, 2 * i);
+                    // Two pairs
+                    if (!scores.containsKey(Hand.TWO_PAIRS)) {
+                        if (pair1 > 0) {
+                            pair2 = 2 * i;
+                        } else {
+                            pair1 = 2 * i;
+                        }
+                        if (pair1 > 0 && pair2 > 0) {
+                            possibleScores.put(Hand.TWO_PAIRS, pair1 + pair2);
+                        }
+                    }
                 }
-
                 // Three of a kind
                 if (!scores.containsKey(Hand.THREE_OF_A_KIND) && occurrences.get(i) >= 3) {
                     possibleScores.put(Hand.THREE_OF_A_KIND, 3 * i);
@@ -84,7 +99,6 @@ public class ScoresLogic implements Scores {
             }
         }
 
-        // Two Pairs TODO
         // Full house
         if (!scores.containsKey(Hand.FULL_HOUSE) && occurrences.size() == 2) {
             boolean fullHouse = true;
@@ -154,7 +168,7 @@ public class ScoresLogic implements Scores {
         HashMap<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
 
         for (int i = 0; i < dice.size(); i++) {
-            int faceValue = dice.get(i).getSilmaluku();
+            int faceValue = dice.get(i).getFaceValue();
             if (occurrences.containsKey(faceValue)) {
                 occurrences.put(faceValue, occurrences.get(faceValue) + 1);
             } else {

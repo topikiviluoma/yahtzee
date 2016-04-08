@@ -13,28 +13,28 @@ import java.util.Random;
  */
 public class Die {
 
-    private int silmaluku;
+    private int faceValue;
     public boolean locked;
     
 
     public Die() {
-        this.silmaluku = 1;
+        this.faceValue = 1;
         this.locked = false;
 
     }
 
-    public int getSilmaluku() {
-        return silmaluku;
+    public int getFaceValue() {
+        return faceValue;
     }
 
-    public void setSilmaluku(int silmaluku) {
-        this.silmaluku = silmaluku;
+    public void setFaceValue(int faceValue) {
+        this.faceValue = faceValue;
     }
 
     public void roll() {
         Random random = new Random();
 
-        this.silmaluku = random.nextInt(6) + 1;
+        this.faceValue = random.nextInt(6) + 1;
     }
 
     public void lock() {
@@ -50,7 +50,7 @@ public class Die {
     }
 
     public String toString() {
-        return Integer.toString(silmaluku);
+        return Integer.toString(faceValue);
     }
 
 }

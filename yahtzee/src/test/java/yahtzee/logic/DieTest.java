@@ -18,9 +18,9 @@ import yahtzee.logic.Die;
  *
  * @author topikivi
  */
-public class DiceTest {
+public class DieTest {
 
-    public DiceTest() {
+    public DieTest() {
     }
 
     @BeforeClass
@@ -48,6 +48,21 @@ public class DiceTest {
     public void konstruktoriAntaaSilmaluvuksi1() {
         Die d = new Die();
 
-        assertEquals(1, d.getSilmaluku());
+        assertEquals(1, d.getFaceValue());
+    }
+    
+    @Test
+    public void lockingDiceWorks() {
+        Die d = new Die();
+        d.lock();
+        assertEquals(true, d.locked());
+    }
+    
+    @Test
+    public void unlockingDiceWorks() {
+        Die d = new Die();
+        d.lock();
+        d.unlock();
+        assertEquals(false, d.locked());
     }
 }
