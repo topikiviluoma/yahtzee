@@ -23,39 +23,23 @@ import yahtzee.logic.Scores;
  * @author topikivi
  */
 public class ScoreslogicTest {
+    ArrayList<Die> dice;
+    ScoresLogic score;
 
     public ScoreslogicTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-    @Test
-    public void ones() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
+        this.dice = new ArrayList<>();
+        this.score = new ScoresLogic();
         
         for (int i = 0; i < 5; i++) {
             dice.add(new Die());
         }
+    
+    }
+
+   
+    @Test
+    public void ones() {
+        
         dice.get(0).setFaceValue(1);
         dice.get(1).setFaceValue(1);
         dice.get(2).setFaceValue(4);
@@ -68,12 +52,7 @@ public class ScoreslogicTest {
 
     @Test
     public void twos() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+     
         dice.get(0).setFaceValue(2);
         dice.get(1).setFaceValue(2);
         dice.get(2).setFaceValue(4);
@@ -86,12 +65,7 @@ public class ScoreslogicTest {
 
     @Test
     public void threes() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+       
         dice.get(0).setFaceValue(3);
         dice.get(1).setFaceValue(3);
         dice.get(2).setFaceValue(4);
@@ -104,12 +78,7 @@ public class ScoreslogicTest {
 
     @Test
     public void fours() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(4);
         dice.get(1).setFaceValue(4);
         dice.get(2).setFaceValue(4);
@@ -122,12 +91,7 @@ public class ScoreslogicTest {
     
     @Test
     public void fives() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(5);
         dice.get(1).setFaceValue(5);
         dice.get(2).setFaceValue(4);
@@ -140,12 +104,7 @@ public class ScoreslogicTest {
     
     @Test
     public void sixes() {
-       ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(6);
         dice.get(1).setFaceValue(1);
         dice.get(2).setFaceValue(4);
@@ -158,12 +117,7 @@ public class ScoreslogicTest {
     
     @Test
     public void pair() {
-       ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+       
         dice.get(0).setFaceValue(2);
         dice.get(1).setFaceValue(6);
         dice.get(2).setFaceValue(4);
@@ -176,12 +130,7 @@ public class ScoreslogicTest {
     
     @Test
     public void twoPair() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+    
         dice.get(0).setFaceValue(4);
         dice.get(1).setFaceValue(6);
         dice.get(2).setFaceValue(4);
@@ -194,12 +143,7 @@ public class ScoreslogicTest {
     
     @Test
     public void threeOfAKind() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+       
         dice.get(0).setFaceValue(4);
         dice.get(1).setFaceValue(4);
         dice.get(2).setFaceValue(4);
@@ -212,12 +156,7 @@ public class ScoreslogicTest {
     
     @Test
     public void fourOfAKind() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(6);
         dice.get(1).setFaceValue(6);
         dice.get(2).setFaceValue(6);
@@ -230,12 +169,7 @@ public class ScoreslogicTest {
     
     @Test
     public void fullHouse() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(4);
         dice.get(1).setFaceValue(6);
         dice.get(2).setFaceValue(4);
@@ -248,12 +182,7 @@ public class ScoreslogicTest {
     
     @Test
     public void smallStraight() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(1);
         dice.get(1).setFaceValue(2);
         dice.get(2).setFaceValue(3);
@@ -266,12 +195,7 @@ public class ScoreslogicTest {
     
     @Test
     public void largeStraight() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+       
         dice.get(0).setFaceValue(2);
         dice.get(1).setFaceValue(3);
         dice.get(2).setFaceValue(4);
@@ -284,12 +208,7 @@ public class ScoreslogicTest {
     
     @Test 
     public void yahtzee() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+      
         dice.get(0).setFaceValue(5);
         dice.get(1).setFaceValue(5);
         dice.get(2).setFaceValue(5);
@@ -304,12 +223,7 @@ public class ScoreslogicTest {
     
     @Test
     public void chance() {
-        ArrayList<Die> dice = new ArrayList<>();
-        ScoresLogic score = new ScoresLogic();
-        
-        for (int i = 0; i < 5; i++) {
-            dice.add(new Die());
-        }
+       
         dice.get(0).setFaceValue(5);
         dice.get(1).setFaceValue(6);
         dice.get(2).setFaceValue(4);

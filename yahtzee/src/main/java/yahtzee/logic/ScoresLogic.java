@@ -2,30 +2,12 @@ package yahtzee.logic;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class ScoresLogic implements Scores {
 
-    private static final Hand[] UPPERHANDS = {
-        Hand.ONES,
-        Hand.TWOS,
-        Hand.THREES,
-        Hand.FOURS,
-        Hand.FIVES,
-        Hand.SIXES
-    };
-    private static final Hand[] LOWERHANDS = {
-        Hand.ONE_PAIR,
-        Hand.TWO_PAIRS,
-        Hand.THREE_OF_A_KIND,
-        Hand.FOUR_OF_A_KIND,
-        Hand.SMALL_STRAIGHT,
-        Hand.LARGE_STRAIGHT,
-        Hand.FULL_HOUSE,
-        Hand.YATZY,
-        Hand.CHANCE
-    };
-
+    
     private HashMap<Hand, Integer> scores;
 
     public ScoresLogic() {
@@ -43,93 +25,136 @@ public class ScoresLogic implements Scores {
         return scores;
     }
 
-    public HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice) {
+    protected HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice) {
         HashMap<Integer, Integer> occurrences = createOccurrenceMap(dice);
-        HashMap<Hand, Integer> possibleScores = new HashMap<>();
+        HashMap<Hand, Integer> possibleScores = new HashMap<Hand, Integer>();
 
-        int sum = 0;
-        int pair1 = 0;
-        int pair2 = 0;
-        for (int i = 1; i <= 6; i++) {
-            if (occurrences.containsKey(i)) {
-                sum += occurrences.get(i) * i;
-
-                // Upper section
-                Hand hand = mapIntToUpperHand(i);
-                if (!scores.containsKey(hand)) {
-                    possibleScores.put(hand, occurrences.get(i) * i);
-                }
-                // Pairs
-                if (occurrences.get(i) >= 2) {
-                    // One pair
-                    if (!scores.containsKey(Hand.ONE_PAIR)) {
-                        onePair(possibleScores, i);                    }
-
-                    // Two pairs
-                    if (!scores.containsKey(Hand.TWO_PAIRS)) {
-                        if (pair1 > 0) {
-                            pair2 = 2 * i;
-                        } else {
-                            pair1 = 2 * i;
-                        }
-                        if (pair1 > 0 && pair2 > 0) {
-                            possibleScores.put(Hand.TWO_PAIRS, pair1 + pair2);
-                        }
-                    }
-                }
-                // Three of a kind
-                if (!scores.containsKey(Hand.THREE_OF_A_KIND) && occurrences.get(i) >= 3) {
-                    possibleScores.put(Hand.THREE_OF_A_KIND, 3 * i);
-                }
-
-                // Four of a kind
-                if (!scores.containsKey(Hand.FOUR_OF_A_KIND) && occurrences.get(i) >= 4) {
-                    possibleScores.put(Hand.FOUR_OF_A_KIND, 4 * i);
-                }
-            }
-        }
-
-        // Full house
-        if (!scores.containsKey(Hand.FULL_HOUSE) && occurrences.size() == 2) {
-            boolean fullHouse = true;
-            for (Integer i : occurrences.values()) {
-                if (i < 2 || i > 3) {
-                    fullHouse = false;
-                    break;
-                }
-            }
-            if (fullHouse) {
-                possibleScores.put(Hand.FULL_HOUSE, sum);
-            }
-        }
-
-        // Small straight & large straight
-        if (occurrences.size() == 5) {
-            Set<Integer> faceValues = occurrences.keySet();
-            if (!(faceValues.contains(1) && faceValues.contains(6))) {
-                if (!scores.containsKey(Hand.SMALL_STRAIGHT) && faceValues.contains(1)) {
-                    possibleScores.put(Hand.SMALL_STRAIGHT, 15);
-                } else if (!scores.containsKey(Hand.LARGE_STRAIGHT) && faceValues.contains(6)) {
-                    possibleScores.put(Hand.LARGE_STRAIGHT, 20);
-                }
-            }
-        }
-
-        // Yatzy
-        if (!scores.containsKey(Hand.YATZY) && occurrences.size() == 1) {
-            possibleScores.put(Hand.YATZY, Scores.YATZY_SCORE);
-        }
-
-        // Chance
-        if (!scores.containsKey(Hand.CHANCE)) {
-            possibleScores.put(Hand.CHANCE, sum);
-        }
+        calcUpperSection(possibleScores, occurrences);
+        calcOnePair(possibleScores, occurrences);
+        calcTwoPairs(possibleScores, occurrences);
+        calcThreeOfAKind(possibleScores, occurrences);
+        calcFourOfAKind(possibleScores, occurrences);
+        calcSmallStraight(possibleScores, occurrences);
+        calcLargeStraight(possibleScores, occurrences);
+        calcFullHouse(possibleScores, occurrences);
+        calcYatzy(possibleScores, occurrences);
+        calcChance(possibleScores, occurrences);
 
         return possibleScores;
     }
 
+    private void calcChance(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (!scores.containsKey(Hand.CHANCE)) {
+            possibleScores.put(Hand.CHANCE, calcSum(occurrences));
+        }
+    }
+
+    private void calcYatzy(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (!scores.containsKey(Hand.YATZY) && occurrences.size() == 1) {
+            possibleScores.put(Hand.YATZY, YATZY_SCORE);
+        }
+    }
+
+    private void calcFullHouse(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.FULL_HOUSE) || occurrences.size() != 2) {
+            return;
+        }
+        for (int i : occurrences.values()) {
+            if (i != 2 && i != 3) {
+                return;
+            }
+        }
+        possibleScores.put(Hand.FULL_HOUSE, calcSum(occurrences));
+    }
+
+    private void calcLargeStraight(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.LARGE_STRAIGHT)) {
+            return;
+        }
+        for (int i = 2; i <= 6; i++) {
+            if (!occurrences.containsKey(i)) {
+                return;
+            }
+        }
+        possibleScores.put(Hand.LARGE_STRAIGHT, 20);
+    }
+
+    private void calcSmallStraight(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.SMALL_STRAIGHT)) {
+            return;
+        }
+        for (int i = 1; i <= 5; i++) {
+            if (!occurrences.containsKey(i)) {
+                return;
+            }
+        }
+        possibleScores.put(Hand.SMALL_STRAIGHT, 15);
+    }
+
+    private void calcFourOfAKind(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.FOUR_OF_A_KIND)) {
+            return;
+        }
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            if (entry.getValue() >= 4) {
+                possibleScores.put(Hand.FOUR_OF_A_KIND, 4 * entry.getKey());
+            }
+        }
+    }
+
+    private void calcThreeOfAKind(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.THREE_OF_A_KIND)) {
+            return;
+        }
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            if (entry.getValue() >= 3) {
+                possibleScores.put(Hand.THREE_OF_A_KIND, 3 * entry.getKey());
+            }
+        }
+    }
+
+    private void calcTwoPairs(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.TWO_PAIRS)) {
+            return;
+        }
+        int firstPair = 0;
+        int secondPair = 0;
+        for (int i = 1; i <= 6; i++) {
+            if (occurrences.containsKey(i) && occurrences.get(i) > 1) {
+                if (firstPair == 0) {
+                    firstPair = 2 * i;
+                } else {
+                    secondPair = 2 * i;
+                }
+            }
+        }
+        if (firstPair > 0 && secondPair > 0) {
+            possibleScores.put(Hand.TWO_PAIRS, firstPair + secondPair);
+        }
+    }
+
+    private void calcOnePair(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        if (scores.containsKey(Hand.ONE_PAIR)) {
+            return;
+        }
+        for (int i = 1; i <= 6; i++) {
+            if (occurrences.containsKey(i) && occurrences.get(i) > 1) {
+                possibleScores.put(Hand.ONE_PAIR, 2 * i);
+            }
+        }
+    }
+
+    private void calcUpperSection(HashMap<Hand, Integer> possibleScores, HashMap<Integer, Integer> occurrences) {
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            Hand hand = mapIntToUpperHand(entry.getKey());
+            if (!scores.containsKey(hand)) {
+                possibleScores.put(hand, entry.getKey() * entry.getValue());
+            }
+        }
+    }
+
     public int getUpperTotal() {
-        return calcTotal(UPPERHANDS);
+        return calcTotal(upperHands);
     }
 
     public int getUpperBonus() {
@@ -137,11 +162,11 @@ public class ScoresLogic implements Scores {
     }
 
     public int getLowerTotal() {
-        return calcTotal(LOWERHANDS);
+        return calcTotal(lowerHands);
     }
 
     public int getTotal() {
-        return getUpperTotal() + getLowerTotal();
+        return getUpperTotal() + getLowerTotal() + getUpperBonus();
     }
 
     private int calcTotal(Hand[] hands) {
@@ -157,8 +182,8 @@ public class ScoresLogic implements Scores {
     private HashMap<Integer, Integer> createOccurrenceMap(ArrayList<Die> dice) {
         HashMap<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
 
-        for (int i = 0; i < dice.size(); i++) {
-            int faceValue = dice.get(i).getFaceValue();
+        for (Die die : dice) {
+            int faceValue = die.getFaceValue();
             if (occurrences.containsKey(faceValue)) {
                 occurrences.put(faceValue, occurrences.get(faceValue) + 1);
             } else {
@@ -187,9 +212,13 @@ public class ScoresLogic implements Scores {
 
         throw new IllegalArgumentException("Illegal face value.");
     }
-    
-    public static void onePair (HashMap<Hand, Integer> possibleScores, int i) {
-        possibleScores.put(Hand.ONE_PAIR, 2 * i);
+
+    private int calcSum(HashMap<Integer, Integer> occurrences) {
+        int sum = 0;
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            sum += entry.getKey() * entry.getValue();
+        }
+        return sum;
     }
 
 }

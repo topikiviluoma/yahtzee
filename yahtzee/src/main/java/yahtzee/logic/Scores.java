@@ -14,6 +14,10 @@ import java.util.HashMap;
  */
 public interface Scores {
 
+    int UPPER_BONUS_LIMIT = 63;
+    int UPPER_BONUS_SCORE = 50;
+    int YATZY_SCORE = 50;
+
     enum Hand {
         ONES,
         TWOS,
@@ -31,16 +35,31 @@ public interface Scores {
         YATZY,
         CHANCE
     }
-    int UPPER_BONUS_LIMIT = 63;
-    int UPPER_BONUS_SCORE = 50;
-    int YATZY_SCORE = 50;
+
+    Hand[] upperHands = {
+            Hand.ONES,
+            Hand.TWOS,
+            Hand.THREES,
+            Hand.FOURS,
+            Hand.FIVES,
+            Hand.SIXES
+    };
+    Hand[] lowerHands = {
+            Hand.ONE_PAIR,
+            Hand.TWO_PAIRS,
+            Hand.THREE_OF_A_KIND,
+            Hand.FOUR_OF_A_KIND,
+            Hand.SMALL_STRAIGHT,
+            Hand.LARGE_STRAIGHT,
+            Hand.FULL_HOUSE,
+            Hand.YATZY,
+            Hand.CHANCE
+    };
 
     void addScore(Hand hand, int score);
 
     HashMap<Hand, Integer> getScores();
 
-    HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice);
-    
     int getUpperTotal();
 
     int getUpperBonus();
@@ -50,3 +69,4 @@ public interface Scores {
     int getTotal();
 
 }
+
