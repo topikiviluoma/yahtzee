@@ -63,8 +63,7 @@ public class ScoresLogic implements Scores {
                 if (occurrences.get(i) >= 2) {
                     // One pair
                     if (!scores.containsKey(Hand.ONE_PAIR)) {
-                        possibleScores.put(Hand.ONE_PAIR, 2 * i);
-                    }
+                        onePair(possibleScores, i);                    }
 
                     // Two pairs
                     if (!scores.containsKey(Hand.TWO_PAIRS)) {
@@ -187,6 +186,10 @@ public class ScoresLogic implements Scores {
         }
 
         throw new IllegalArgumentException("Illegal face value.");
+    }
+    
+    public static void onePair (HashMap<Hand, Integer> possibleScores, int i) {
+        possibleScores.put(Hand.ONE_PAIR, 2 * i);
     }
 
 }

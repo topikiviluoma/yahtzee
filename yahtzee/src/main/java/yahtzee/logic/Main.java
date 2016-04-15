@@ -6,7 +6,7 @@
 package yahtzee.logic;
 
 import java.util.Scanner;
-import yahtzee.logic.Player;
+
 import yahtzee.logic.Round;
 import gui.AddPlayers;
 import javax.swing.SwingUtilities;
