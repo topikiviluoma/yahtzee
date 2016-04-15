@@ -9,14 +9,18 @@ import java.util.Random;
 
 /**
  *
- * @author topikivi
+ * Tämä luokka on noppaa varten, luokka hoitaa myös random silmäluvun arvonnan
+ * ja vastaa tiedosta onko noppa lukittu vai ei
+ *
  */
 public class Die {
 
     private int faceValue;
     public boolean locked;
-    
 
+    /**
+     * Konstruktori asettaa oletuksena nopan ei lukittuun tilaan.
+     */
     public Die() {
         this.faceValue = 1;
         this.locked = false;
@@ -31,12 +35,20 @@ public class Die {
         this.faceValue = faceValue;
     }
 
+    /**
+     *
+     * Arvotaan silmäluku
+     */
     public void roll() {
         Random random = new Random();
 
         this.faceValue = random.nextInt(6) + 1;
     }
 
+    /**
+     * Asetetaan tila
+     *
+     */
     public void lock() {
         this.locked = true;
     }

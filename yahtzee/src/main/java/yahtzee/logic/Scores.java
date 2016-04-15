@@ -37,23 +37,23 @@ public interface Scores {
     }
 
     Hand[] upperHands = {
-            Hand.ONES,
-            Hand.TWOS,
-            Hand.THREES,
-            Hand.FOURS,
-            Hand.FIVES,
-            Hand.SIXES
+        Hand.ONES,
+        Hand.TWOS,
+        Hand.THREES,
+        Hand.FOURS,
+        Hand.FIVES,
+        Hand.SIXES
     };
     Hand[] lowerHands = {
-            Hand.ONE_PAIR,
-            Hand.TWO_PAIRS,
-            Hand.THREE_OF_A_KIND,
-            Hand.FOUR_OF_A_KIND,
-            Hand.SMALL_STRAIGHT,
-            Hand.LARGE_STRAIGHT,
-            Hand.FULL_HOUSE,
-            Hand.YATZY,
-            Hand.CHANCE
+        Hand.ONE_PAIR,
+        Hand.TWO_PAIRS,
+        Hand.THREE_OF_A_KIND,
+        Hand.FOUR_OF_A_KIND,
+        Hand.SMALL_STRAIGHT,
+        Hand.LARGE_STRAIGHT,
+        Hand.FULL_HOUSE,
+        Hand.YATZY,
+        Hand.CHANCE
     };
 
     void addScore(Hand hand, int score);
@@ -69,4 +69,3 @@ public interface Scores {
     int getTotal();
 
 }
-

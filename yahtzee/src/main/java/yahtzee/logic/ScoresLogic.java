@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class ScoresLogic implements Scores {
 
-    
     private HashMap<Hand, Integer> scores;
 
     public ScoresLogic() {
