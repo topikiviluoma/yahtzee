@@ -148,14 +148,29 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="die1">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="die1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="die2">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="die2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="die3">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="die3MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="die4">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="die4MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="die5">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="die5MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

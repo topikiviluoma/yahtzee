@@ -5,6 +5,7 @@
  */
 package gui;
 
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import yahtzee.logic.Die;
 
@@ -17,8 +18,14 @@ public class kayttoliittyma extends javax.swing.JFrame {
     /**
      * Creates new form kayttoliittyma
      */
+    ArrayList<Die> dice;
+
     public kayttoliittyma() {
         initComponents();
+        dice = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            dice.add(new Die());
+        }
     }
 
     /**
@@ -83,6 +90,36 @@ public class kayttoliittyma extends javax.swing.JFrame {
             }
         });
 
+        die1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                die1MouseClicked(evt);
+            }
+        });
+
+        die2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                die2MouseClicked(evt);
+            }
+        });
+
+        die3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                die3MouseClicked(evt);
+            }
+        });
+
+        die4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                die4MouseClicked(evt);
+            }
+        });
+
+        die5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                die5MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,12 +168,62 @@ public class kayttoliittyma extends javax.swing.JFrame {
 
     private void ROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ROLLActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < dice.size(); i++) {
+            if (!dice.get(i).locked()) {
+                dice.get(i).roll();
+            }
+        }
         rollDie1();
         rollDie2();
         rollDie3();
         rollDie4();
         rollDie5();
     }//GEN-LAST:event_ROLLActionPerformed
+
+    private void die1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die1MouseClicked
+        // TODO add your handling code here:
+        if (dice.get(0).locked()) {
+            dice.get(0).unlock();
+        } else {
+            dice.get(0).lock();
+        }
+    }//GEN-LAST:event_die1MouseClicked
+
+    private void die2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die2MouseClicked
+        // TODO add your handling code here:
+        if (dice.get(1).locked()) {
+            dice.get(1).unlock();
+        } else {
+            dice.get(1).lock();
+        }
+    }//GEN-LAST:event_die2MouseClicked
+
+    private void die3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die3MouseClicked
+        // TODO add your handling code here:
+        if (dice.get(2).locked()) {
+            dice.get(2).unlock();
+        } else {
+            dice.get(2).lock();
+        }
+    }//GEN-LAST:event_die3MouseClicked
+
+    private void die4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die4MouseClicked
+        // TODO add your handling code here:
+        if (dice.get(3).locked()) {
+            dice.get(3).unlock();
+        } else {
+            dice.get(3).lock();
+        }
+    }//GEN-LAST:event_die4MouseClicked
+
+    private void die5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die5MouseClicked
+        // TODO add your handling code here:
+        if (dice.get(4).locked()) {
+            dice.get(4).unlock();
+        } else {
+            dice.get(4).lock();
+        }
+    }//GEN-LAST:event_die5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -172,10 +259,10 @@ public class kayttoliittyma extends javax.swing.JFrame {
             }
         });
     }
+
     public void rollDie1() {
-        Die d = new Die();
-        d.roll();
-        switch (d.getFaceValue()) {
+        Die d1 = dice.get(0);
+        switch (d1.getFaceValue()) {
             case 1:
                 die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
@@ -199,9 +286,8 @@ public class kayttoliittyma extends javax.swing.JFrame {
     }
 
     public void rollDie2() {
-        Die d = new Die();
-        d.roll();
-        switch (d.getFaceValue()) {
+        Die d2 = dice.get(1);
+        switch (d2.getFaceValue()) {
             case 1:
                 die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
@@ -224,9 +310,8 @@ public class kayttoliittyma extends javax.swing.JFrame {
     }
 
     public void rollDie3() {
-        Die d = new Die();
-        d.roll();
-        switch (d.getFaceValue()) {
+        Die d3 = dice.get(2);
+        switch (d3.getFaceValue()) {
             case 1:
                 die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
@@ -249,9 +334,8 @@ public class kayttoliittyma extends javax.swing.JFrame {
     }
 
     public void rollDie4() {
-        Die d = new Die();
-        d.roll();
-        switch (d.getFaceValue()) {
+        Die d4 = dice.get(3);
+        switch (d4.getFaceValue()) {
             case 1:
                 die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
@@ -272,27 +356,27 @@ public class kayttoliittyma extends javax.swing.JFrame {
                 break;
         }
     }
+
     public void rollDie5() {
-        Die d = new Die();
-        d.roll();
-        switch(d.getFaceValue()) {
-        case 1:
-               die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png")); 
+        Die d5 = dice.get(4);
+        switch (d5.getFaceValue()) {
+            case 1:
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
             case 2:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png")); 
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
                 break;
             case 3:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png")); 
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
                 break;
             case 4:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png")); 
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
                 break;
             case 5:
-               die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png")); 
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
                 break;
             case 6:
-               die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png")); 
+                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
                 break;
         }
     }
