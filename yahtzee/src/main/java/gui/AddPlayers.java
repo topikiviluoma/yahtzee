@@ -47,7 +47,7 @@ public class AddPlayers implements Runnable {
 
         JLabel nimiTeksti = new JLabel("Pelaaja 1: ");
         JTextField player1 = new JTextField();
-        JLabel hetuTeksti = new JLabel("Pelaaja 2: ");
+        JLabel nimiTeksti1 = new JLabel("Pelaaja 2: ");
         JTextField player2 = new JTextField();
 
         JButton addButton = new JButton("Lisää pelaajat!");
@@ -56,7 +56,7 @@ public class AddPlayers implements Runnable {
 
         container.add(nimiTeksti);
         container.add(player1);
-        container.add(hetuTeksti);
+        container.add(nimiTeksti1);
         container.add(player2);
         container.add(new JLabel(""));
         container.add(addButton);

@@ -27,7 +27,7 @@ public class ScoresLogic implements Scores {
 
     protected HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice) {
         HashMap<Integer, Integer> occurrences = createOccurrenceMap(dice);
-        HashMap<Hand, Integer> possibleScores = new HashMap<Hand, Integer>();
+        HashMap<Hand, Integer> possibleScores = new HashMap<>();
 
         calcUpperSection(possibleScores, occurrences);
         calcOnePair(possibleScores, occurrences);
@@ -180,7 +180,7 @@ public class ScoresLogic implements Scores {
     }
 
     private HashMap<Integer, Integer> createOccurrenceMap(ArrayList<Die> dice) {
-        HashMap<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> occurrences = new HashMap<>();
 
         for (Die die : dice) {
             int faceValue = die.getFaceValue();
@@ -220,5 +220,4 @@ public class ScoresLogic implements Scores {
         }
         return sum;
     }
-
 }

@@ -31,15 +31,16 @@ public class Round {
 
     public void rollDice() {
         for (Die die : d) {
-            die.roll();
+            if (!die.locked) {
+                die.roll();
+            }
         }
     }
 
-    
     public ArrayList<Die> getDice() {
         return d;
     }
-    
+
     public void printScores() {
         ScoresLogic sl = new ScoresLogic();
         System.out.println("Mahdolliset tulokset: ");
