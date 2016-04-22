@@ -61,8 +61,6 @@ public class Die {
         return this.locked;
     }
 
-    public String toString() {
-        return Integer.toString(faceValue);
-    }
+    
 
 }

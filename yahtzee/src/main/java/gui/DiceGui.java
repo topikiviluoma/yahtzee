@@ -262,27 +262,28 @@ public class DiceGui extends javax.swing.JFrame {
                 break;
         }
     }
+
     public void rollDie5() {
         Die d = new Die();
         d.roll();
-        switch(d.getFaceValue()) {
-        case 1:
-                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png")); 
+        switch (d.getFaceValue()) {
+            case 1:
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
             case 2:
-                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png")); 
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
                 break;
             case 3:
-                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png")); 
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
                 break;
             case 4:
-                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png")); 
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
                 break;
             case 5:
-               jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png")); 
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
                 break;
             case 6:
-               jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png")); 
+                jLabel5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
                 break;
         }
     }

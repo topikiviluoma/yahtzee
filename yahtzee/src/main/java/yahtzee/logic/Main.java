@@ -23,8 +23,8 @@ import javax.swing.SwingUtilities;
 public class Main {
 
     public static void main(String[] args) {
-       DiceGui ui = new DiceGui();
-        SwingUtilities.invokeLater(ui);
+//       DiceGui ui = new DiceGui();
+//        SwingUtilities.invokeLater(ui);
         
 
         //rundin testausta

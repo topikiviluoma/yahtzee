@@ -9,3 +9,6 @@ Päivä | Tunnit | Kuvaus
 1.4.2016 | 2h | Scores logiikan parantelua, testailua
 5.4.2016 | 2.5h | Swing kertausta ja gui:n hahmottelua
 6.4.2016 | 2h | Turhein luokkien pois pudottaminen, testien lisääminen ja raporttien päivittäminen
+13.4.2016 | 3h | Koodausta
+21.4.2016 | 2h | Graafisen käyttöliittymän koodausta
+22.4.2016 | 3h | Graafisen käyttöliittymän koodailua ja testailua

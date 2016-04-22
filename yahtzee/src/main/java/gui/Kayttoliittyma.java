@@ -7,20 +7,21 @@ package gui;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import yahtzee.logic.Die;
 
 /**
  *
  * Käyttöliittymämallin testaus!!
  */
-public class kayttoliittyma extends javax.swing.JFrame {
+public class Kayttoliittyma extends javax.swing.JFrame {
 
     /**
      * Creates new form kayttoliittyma
      */
     ArrayList<Die> dice;
 
-    public kayttoliittyma() {
+    public Kayttoliittyma() {
         initComponents();
         dice = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -39,7 +40,7 @@ public class kayttoliittyma extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        ROLL = new javax.swing.JButton();
+        roll = new javax.swing.JButton();
         die1 = new javax.swing.JLabel();
         die2 = new javax.swing.JLabel();
         die3 = new javax.swing.JLabel();
@@ -83,10 +84,10 @@ public class kayttoliittyma extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        ROLL.setText("ROLL");
-        ROLL.addActionListener(new java.awt.event.ActionListener() {
+        roll.setText("ROLL");
+        roll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ROLLActionPerformed(evt);
+                rollActionPerformed(evt);
             }
         });
 
@@ -127,7 +128,7 @@ public class kayttoliittyma extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ROLL, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roll, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(die3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(die4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(die5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +148,7 @@ public class kayttoliittyma extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(ROLL)
+                .addComponent(roll)
                 .addGap(18, 18, 18)
                 .addComponent(die1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -166,19 +167,19 @@ public class kayttoliittyma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ROLLActionPerformed
+    private void rollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollActionPerformed
         // TODO add your handling code here:
         for (int i = 0; i < dice.size(); i++) {
             if (!dice.get(i).locked()) {
                 dice.get(i).roll();
             }
         }
-        rollDie1();
-        rollDie2();
-        rollDie3();
-        rollDie4();
-        rollDie5();
-    }//GEN-LAST:event_ROLLActionPerformed
+        rollDie(dice.get(0), die1);
+        rollDie(dice.get(1), die2);
+        rollDie(dice.get(2), die3);
+        rollDie(dice.get(3), die4);
+        rollDie(dice.get(4), die5);
+    }//GEN-LAST:event_rollActionPerformed
 
     private void die1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_die1MouseClicked
         // TODO add your handling code here:
@@ -242,147 +243,50 @@ public class kayttoliittyma extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Kayttoliittyma.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new kayttoliittyma().setVisible(true);
+                new Kayttoliittyma().setVisible(true);
             }
         });
     }
 
-    public void rollDie1() {
-        Die d1 = dice.get(0);
-        switch (d1.getFaceValue()) {
+    public void rollDie(Die d, JLabel jl) {
+
+        switch (d.getFaceValue()) {
             case 1:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
                 break;
             case 2:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
                 break;
             case 3:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
                 break;
             case 4:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
                 break;
             case 5:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
                 break;
             case 6:
-                die1.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
-                break;
-        }
-
-    }
-
-    public void rollDie2() {
-        Die d2 = dice.get(1);
-        switch (d2.getFaceValue()) {
-            case 1:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
-                break;
-            case 2:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
-                break;
-            case 3:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
-                break;
-            case 4:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
-                break;
-            case 5:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
-                break;
-            case 6:
-                die2.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
-                break;
-        }
-    }
-
-    public void rollDie3() {
-        Die d3 = dice.get(2);
-        switch (d3.getFaceValue()) {
-            case 1:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
-                break;
-            case 2:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
-                break;
-            case 3:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
-                break;
-            case 4:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
-                break;
-            case 5:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
-                break;
-            case 6:
-                die3.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
-                break;
-        }
-    }
-
-    public void rollDie4() {
-        Die d4 = dice.get(3);
-        switch (d4.getFaceValue()) {
-            case 1:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
-                break;
-            case 2:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
-                break;
-            case 3:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
-                break;
-            case 4:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
-                break;
-            case 5:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
-                break;
-            case 6:
-                die4.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
-                break;
-        }
-    }
-
-    public void rollDie5() {
-        Die d5 = dice.get(4);
-        switch (d5.getFaceValue()) {
-            case 1:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_1.png"));
-                break;
-            case 2:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_2.png"));
-                break;
-            case 3:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_3.png"));
-                break;
-            case 4:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_4.png"));
-                break;
-            case 5:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_5.png"));
-                break;
-            case 6:
-                die5.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
+                jl.setIcon(new ImageIcon("/home/topikivi/NetBeansProjects/yahtzee/yahtzee/src/main/java/gui/dieImages/die_6.png"));
                 break;
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ROLL;
     private javax.swing.JLabel die1;
     private javax.swing.JLabel die2;
     private javax.swing.JLabel die3;
@@ -390,5 +294,6 @@ public class kayttoliittyma extends javax.swing.JFrame {
     private javax.swing.JLabel die5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton roll;
     // End of variables declaration//GEN-END:variables
 }
