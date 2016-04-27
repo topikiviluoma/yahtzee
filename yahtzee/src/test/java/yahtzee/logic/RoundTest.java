@@ -17,15 +17,24 @@ import static org.junit.Assert.*;
  * @author topikivi
  */
 public class RoundTest {
-    
+    Round r;
     public RoundTest() {
+        r = new Round("Pekka");
     }
     
     
    @Test
    public void createsRightAmountOfDice() {
-       Round r = new Round("Pekka");
+       
        r.createDice();
        assertEquals(5, r.getDice().size());
+   }
+   
+   @Test
+   public void unlockDiceWorks() {
+       r.createDice();
+       r.getDice().get(0).lock();
+       r.unlockDice();
+       assertEquals(r.getDice().get(0).locked, false);
    }
 }

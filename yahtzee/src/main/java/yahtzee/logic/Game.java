@@ -45,13 +45,17 @@ public class Game {
                 String lukittavat = lukija.nextLine();
                 if (lukittavat.contains("0")) {
                     r.getDice().get(0).lock();
-                } else if (lukittavat.contains("1")) {
+                }
+                if (lukittavat.contains("1")) {
                     r.getDice().get(1).lock();
-                } else if (lukittavat.contains("2")) {
+                }
+                if (lukittavat.contains("2")) {
                     r.getDice().get(2).lock();
-                } else if (lukittavat.contains("3")) {
+                }
+                if (lukittavat.contains("3")) {
                     r.getDice().get(3).lock();
-                } else if (lukittavat.contains("4")) {
+                }
+                if (lukittavat.contains("4")) {
                     r.getDice().get(4).lock();
                 }
 
