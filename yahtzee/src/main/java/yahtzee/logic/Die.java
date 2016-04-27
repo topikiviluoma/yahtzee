@@ -60,6 +60,11 @@ public class Die {
     public boolean locked() {
         return this.locked;
     }
+    
+    @Override
+    public String toString() {
+        return "" + this.faceValue;
+    }
 
     
 

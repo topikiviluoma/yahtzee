@@ -28,7 +28,6 @@ public class ScoresLogic implements Scores {
     protected HashMap<Hand, Integer> calcPossibleScores(ArrayList<Die> dice) {
         HashMap<Integer, Integer> occurrences = createOccurrenceMap(dice);
         HashMap<Hand, Integer> possibleScores = new HashMap<>();
-
         calcUpperSection(possibleScores, occurrences);
         calcOnePair(possibleScores, occurrences);
         calcTwoPairs(possibleScores, occurrences);
@@ -39,7 +38,6 @@ public class ScoresLogic implements Scores {
         calcFullHouse(possibleScores, occurrences);
         calcYatzy(possibleScores, occurrences);
         calcChance(possibleScores, occurrences);
-
         return possibleScores;
     }
 

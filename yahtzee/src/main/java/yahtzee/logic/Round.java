@@ -46,4 +46,10 @@ public class Round {
         System.out.println("Mahdolliset tulokset: ");
         System.out.println(sl.calcPossibleScores(getDice()));
     }
+
+    public void unlockDice() {
+        for (Die die : d) {
+            die.unlock();
+        }
+    }
 }
