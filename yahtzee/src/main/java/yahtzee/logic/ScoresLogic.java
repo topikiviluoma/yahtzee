@@ -6,12 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ *
+ * Pelilogiikkaa hallinnoiva luokka
+ */
 public class ScoresLogic implements Scores {
 
     private HashMap<Hand, Integer> scores;
 
     public ScoresLogic() {
-        scores = new HashMap<Hand, Integer>();
+        scores = new HashMap<>();
     }
 
     public void addScore(Hand hand, int score) {

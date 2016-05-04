@@ -12,3 +12,7 @@
 
 ![Alt text](/Dokumentointi/luokkakaavio.png)
 
+**Sekvenssikaavtiot:**
+
+![Alt text](/Dokumentointi/lukitseminen_ja_heittaminen.png)
+
