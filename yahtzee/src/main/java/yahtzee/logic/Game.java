@@ -16,7 +16,7 @@ public class Game {
 
     public Game() {
         sl = new ScoresLogic();
-        r = new Round("Pekka");
+        r = new Round();
         lukija = new Scanner(System.in);
         r.createDice();
         roundNumber = 1;
@@ -45,10 +45,10 @@ public class Game {
              *
              */
             for (int k = 0; k < 2; k++) {
-                System.out.println("Dice: ");
+                System.out.println("Nopat: ");
                 System.out.println(r.getDice());
-                System.out.print("Possible scores: ");
-                r.printScores();
+                System.out.print("Mahdolliset tulokset: ");
+                System.out.println(sl.calcPossibleScores(r.getDice()));
                 System.out.println("");
                 /**
                  * valitaan lukittavat.
@@ -87,7 +87,8 @@ public class Game {
              * johon syötetään pisteet.
              */
             System.out.println(r.getDice());
-            r.printScores();
+            
+            System.out.println(sl.calcPossibleScores(r.getDice()));
             while (true) {
                 System.out.println("Valitse tulos: ");
 
@@ -108,6 +109,7 @@ public class Game {
                 }
             }
         }
+        System.out.println("Kokonaispisteet: " + sl.getTotal());
 
     }
 }

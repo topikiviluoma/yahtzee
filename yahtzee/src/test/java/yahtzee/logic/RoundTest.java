@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class RoundTest {
     Round r;
     public RoundTest() {
-        r = new Round("Pekka");
+        r = new Round();
     }
     
     
@@ -36,5 +36,12 @@ public class RoundTest {
        r.getDice().get(0).lock();
        r.unlockDice();
        assertEquals(r.getDice().get(0).locked, false);
+   }
+   
+   @Test
+   public void lockDiceWorks() {
+       r.createDice();
+       r.getDice().get(0).lock();
+       assertEquals(r.getDice().get(0).locked, true);
    }
 }

@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author topikivi
+ * Scores rajapinnan toteuttaminen.
  */
 public interface Scores {
 
@@ -18,6 +18,9 @@ public interface Scores {
     int UPPER_BONUS_SCORE = 50;
     int YATZY_SCORE = 50;
 
+    /**
+     * Kädet enumeina.
+     */
     enum Hand {
         ONES,
         TWOS,
@@ -35,7 +38,9 @@ public interface Scores {
         YATZY,
         CHANCE
     }
-
+    /**
+     * "yläkädet" yhtenä käsitauluna.
+     */
     Hand[] upperHands = {
         Hand.ONES,
         Hand.TWOS,
@@ -44,6 +49,9 @@ public interface Scores {
         Hand.FIVES,
         Hand.SIXES
     };
+    /**
+     * "alakädet" tauluna.
+     */
     Hand[] lowerHands = {
         Hand.ONE_PAIR,
         Hand.TWO_PAIRS,
@@ -56,16 +64,48 @@ public interface Scores {
         Hand.CHANCE
     };
 
+    /**
+     * lisätään tulos ja pisteet.
+     *
+     * @param hand käsi
+     * @param score käden pisteet
+     */
+
     void addScore(Hand hand, int score);
 
+    /**
+     * palauttaa kaikki pisteet.
+     *
+     * @return palauttaa pisteet
+     */
     HashMap<Hand, Integer> getScores();
 
+    /**
+     * palauttaa yläkäsien pisteet.
+     *
+     * @return palauttaa pisteet
+     */
     int getUpperTotal();
 
+    /**
+     * palauttaa mahdolliset bonukset, jos yläkäsien yhteispistemäärä on 63 tai
+     * yli.
+     *
+     * @return palauttaa bonuspisteet eli 50
+     */
     int getUpperBonus();
 
+    /**
+     * palauttaa alakäsien pisteet.
+     *
+     * @return palauttaa pisteet
+     */
     int getLowerTotal();
 
+    /**
+     *palauttaa kokonaispistemäärän.
+     * @return palauttaa kokonaispisteet
+     */
     int getTotal();
 
 }

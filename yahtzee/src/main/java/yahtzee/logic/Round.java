@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author topikivi
+ * Heittokierrosta hallinnoiva luokka.
  */
 public class Round {
 
-    private String player;
+    ;
     private ArrayList<Die> d;
 
     /**
      * Konstruktori.
      */
-    public Round(String p) {
-        this.player = p;
+    public Round() {
+
         this.d = new ArrayList<>();
 
     }

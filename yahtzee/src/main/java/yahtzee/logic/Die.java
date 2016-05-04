@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  *
  * Tämä luokka on noppaa varten, luokka hoitaa myös random silmäluvun arvonnan
- * ja vastaa tiedosta onko noppa lukittu vai ei
+ * ja vastaa tiedosta onko noppa lukittu vai ei.
  *
  */
 public class Die {
@@ -37,7 +37,7 @@ public class Die {
 
     /**
      *
-     * Arvotaan silmäluku
+     * Arvotaan silmäluku.
      */
     public void roll() {
         Random random = new Random();
@@ -46,16 +46,25 @@ public class Die {
     }
 
     /**
-     * Asetetaan tila
+     * Asetetaan tila.
      *
      */
     public void lock() {
         this.locked = true;
     }
+    
+    /**
+     * vapautetaan lukituksesta.
+     */
 
     public void unlock() {
         this.locked = false;
     }
+    
+    /**
+     * true jos lukittu.
+     * @return true jos lukittu, false jos ei
+     */
 
     public boolean locked() {
         return this.locked;
