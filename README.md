@@ -1,5 +1,6 @@
 # Yahtzee
-Aiheena on luoda yksinkertainen Yahtzee peli, jota pystyy pelaamaan kaksi ihmispelaajaa.
+Yahtzee peli, jota pystyy pelaamaan yksi ihminen komentoriviltä. Graafista käyttöliittymää en lopulta kerennyt toteuttamaan, vaikka vähän aloitinkin sen hahmottelua.
+Ohjelma toimii ajamalla jar-tiedoston komentoriviltä.
 
 # Dokumentaatio
 [Linkki dokumentaatioon](Dokumentointi/)

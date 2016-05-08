@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 21.4.2016 | 2h | Graafisen käyttöliittymän koodausta
 22.4.2016 | 3h | Graafisen käyttöliittymän koodailua ja testailua
 27.4.2016 | 4h | Graafisen käyttöliittymän pähkäilyä, testin lisääminen, tekstikäyttöliittymän toteutus lopulta
+8.5.2016 |3h| Lopun hiomista ja dokumentaation päivittämistä.

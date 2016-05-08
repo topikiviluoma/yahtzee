@@ -18,6 +18,12 @@ public class ScoresLogic implements Scores {
         scores = new HashMap<>();
     }
 
+    /**
+     * Lisää tuloksiin valitun käden ja pisteet.
+     *
+     * @param hand käsi
+     * @param score tulos
+     */
     public void addScore(Hand hand, int score) {
         if (scores.containsKey(hand)) {
             throw new UnsupportedOperationException("Score already exists.");
@@ -25,6 +31,11 @@ public class ScoresLogic implements Scores {
         scores.put(hand, score);
     }
 
+    /**
+     * Palauttaa tulokset hashmappina.
+     *
+     * @return palauttaa tulokset
+     */
     public HashMap<Hand, Integer> getScores() {
         return scores;
     }
@@ -155,18 +166,38 @@ public class ScoresLogic implements Scores {
         }
     }
 
+    /**
+     * Yläkäsien pisteet.
+     *
+     * @return pisteet
+     */
     public int getUpperTotal() {
         return calcTotal(upperHands);
     }
 
+    /**
+     * Mahdollinen bonus jos tulos yli 53.
+     *
+     * @return bonus
+     */
     public int getUpperBonus() {
         return getUpperTotal() >= UPPER_BONUS_LIMIT ? UPPER_BONUS_SCORE : 0;
     }
 
+    /**
+     * alakäsien kokonaispisteet.
+     *
+     * @return pisteet
+     */
     public int getLowerTotal() {
         return calcTotal(lowerHands);
     }
 
+    /**
+     * kokonaispisteet
+     *
+     * @return pisteet
+     */
     public int getTotal() {
         return getUpperTotal() + getLowerTotal() + getUpperBonus();
     }

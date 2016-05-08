@@ -108,6 +108,7 @@ public class Game {
                     System.out.println("Valitse uudelleen");
                 }
             }
+            System.out.println();
         }
         System.out.println("Kokonaispisteet: " + sl.getTotal());
 
