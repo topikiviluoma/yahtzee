@@ -14,6 +14,9 @@ public class Game {
     Scanner lukija;
     int roundNumber;
 
+    /**
+     * konstruktori.
+     */
     public Game() {
         sl = new ScoresLogic();
         r = new Round();
@@ -22,6 +25,9 @@ public class Game {
         roundNumber = 1;
     }
 
+    /**
+     * ajamismetodi.
+     */
     public void run() {
         /**
          * Loopataan yhteensä 15 kierrosta, joka on koko pelin heittokierrosten
@@ -87,7 +93,7 @@ public class Game {
              * johon syötetään pisteet.
              */
             System.out.println(r.getDice());
-            
+
             System.out.println(sl.calcPossibleScores(r.getDice()));
             while (true) {
                 System.out.println("Valitse tulos: ");

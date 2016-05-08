@@ -8,12 +8,15 @@ import java.util.Set;
 
 /**
  *
- * Pelilogiikkaa hallinnoiva luokka
+ * Pelilogiikkaa hallinnoiva luokka.
  */
 public class ScoresLogic implements Scores {
 
     private HashMap<Hand, Integer> scores;
 
+    /**
+     * konstruktori.
+     */
     public ScoresLogic() {
         scores = new HashMap<>();
     }
@@ -194,7 +197,7 @@ public class ScoresLogic implements Scores {
     }
 
     /**
-     * kokonaispisteet
+     * kokonaispisteet.
      *
      * @return pisteet
      */

@@ -9,6 +9,6 @@ Ohjelma toimii ajamalla jar-tiedoston komentoriviltä.
 
 [tuntikirjanpito](Dokumentointi/Tuntikirjanpito.md)
 
-[Checstyle raportti:] (https://htmlpreview.github.io/?https://github.com/topikiviluoma/yahtzee/blob/master/Dokumentointi/checkstyle.html) Suurinta osaa erroreista en saanut mitään selvää, en saanut korjattua.
+[Checstyle raportti:] (https://htmlpreview.github.io/?https://github.com/topikiviluoma/yahtzee/blob/master/Dokumentointi/checkstyle.html) 
 
 [PIT-Raportti: ] (https://htmlpreview.github.io/?https://github.com/topikiviluoma/yahtzee/blob/master/Dokumentointi/pit/index.html)
